@@ -7,12 +7,13 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    @colum(length = 2000)
     private String description;
     private String code;
     private String imageURL;
     private boolean active;
     @OneToMany
-    private List<Module> module;
+    private List<Module> modules;
 
     public Course(long id) {
         this.id = id;
