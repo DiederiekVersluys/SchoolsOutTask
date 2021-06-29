@@ -10,7 +10,7 @@ public class Person {
     private String familyName;
     @Transient
     private Gender gender;
-    @ManyToOne
+    @ManyToOne(cascade = cascadeType.DETACH)
     private Course course;
 
     public int getId() {
