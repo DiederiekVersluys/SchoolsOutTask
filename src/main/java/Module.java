@@ -10,7 +10,7 @@ public class Module {
     private String description;
     @ManyToOne
     private Course course;
-    @OneToMany
+    @OneToMany(mappedBy = "")
     private List<Exam> exams;
 
     public Module(long id) {
