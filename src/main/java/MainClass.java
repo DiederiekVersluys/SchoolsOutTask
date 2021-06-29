@@ -5,8 +5,12 @@ import javax.persistence.Persistence;
 public class MainClass {
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("diederiekDatabase");
-        EntityManager em = emf.createEntityManager();
+        EMFactory.getEMF();
+        
+        //UserService userService = new UserService();
+        UserRepository userRepositroy = new UserRepository();
+        Person person = new Person();
+        User user = new User();
 
         em.getTransaction().begin();
 
