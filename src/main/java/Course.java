@@ -12,7 +12,7 @@ public class Course {
     private String code;
     private String imageURL;
     private boolean active;
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     private List<Module> modules;
 
     public Course(long id) {
