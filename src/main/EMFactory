@@ -6,3 +6,5 @@ public static EntityManagerFactory getEMF(){
 return Persistence.createEntityManagerFactory("diederiekDatabase");
 }
 }
+
+//in een map repository plaatsen
