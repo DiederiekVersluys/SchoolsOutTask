@@ -11,7 +11,7 @@ public class Exam {
    private LocalDate date;
    private int weight;
    private int total;
-   @OneToMany
+   @ManyToOne
    private Module module;
 
     public Exam() {
