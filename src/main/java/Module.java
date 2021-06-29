@@ -8,6 +8,7 @@ public class Module {
     private long id;
     private String name;
     private String description;
+    @ManyToOne
     private Course course;
     @OneToMany
     private List<Exam> exams;
