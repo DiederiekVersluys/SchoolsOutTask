@@ -1,1 +1,49 @@
+package repositories
 
+public class PersonRepository {
+
+public Person findPersonByLogin(String login){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+return em.find(Person.class, login);
+}
+
+public ListPerson> getAllPersons(){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+  List<User> persons = em.createQuery("Select u from Person u").getResultList();
+  return persons;
+ 
+}
+
+public list<Person> getAllActivePersons(){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+  List<Person> persons = em.createQuery("Select b from Person b where b.active = true").getResultList();
+  return persons;
+
+}
+
+public void createPerson(Person person){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+em.getTransaction().begin();
+em.persist(person);
+em.getTransaction().commit();
+  }
+  
+public void updatePerson(Person person){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+em.getTransaction().begin();
+em.merge(person);
+em.getTransaction().commit();
+
+}
+
+public void deletePerson(Person person){
+EntityManager em = EMFactory.getEMF().createEntityManager();
+em.getTransaction().begin();
+User foundPerson = em.find(Person.class, Person.getId());
+em.remove(foundPerson);
+em.getTransaction().commit();}
+
+}
+
+
+// mapje repository
