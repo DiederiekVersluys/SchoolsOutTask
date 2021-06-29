@@ -7,10 +7,11 @@ public class Module {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    @colum(length = 2000)
     private String description;
     @ManyToOne
     private Course course;
-    @OneToMany(mappedBy = "module")
+    @OneToMany(mappedBy = "module", cascade = CascadeType.DETACH)
     private List<Exam> exams;
 
     public Module(long id) {
