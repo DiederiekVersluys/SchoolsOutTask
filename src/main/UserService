@@ -1,0 +1,14 @@
+// in mapje services
+
+import repositories.Userrepository;
+
+public class UserService {
+
+private UserRepository userRepository;
+
+public UserService (){
+this.userRepository = new UserRepository();
+}
+
+
+}
