@@ -6,7 +6,7 @@ public class User {
     private String login;
     private String passwordHash;
     private boolean active;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Person person;
 
     private User() {
