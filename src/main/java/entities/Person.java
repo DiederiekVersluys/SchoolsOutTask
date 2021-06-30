@@ -3,6 +3,7 @@ package entities;
 import entities.Course;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Person {
@@ -15,14 +16,21 @@ public class Person {
     @Transient
     private Gender gender;
     @ManyToOne(cascade = CascadeType.DETACH)
-    private Course course;
+    private Course courseActive;
+    @ManyToOne
+    private List<Course> courseHistory;
+
+    public Person() {
+    }
+
+
 
     public Person(int id, String firstName, String familyName, Gender gender, Course course) {
         this.id = id;
         this.firstName = firstName;
         this.familyName = familyName;
         this.gender = gender;
-        this.course = course;
+        this.courseActive = course;
     }
 
     public int getId() {
@@ -58,15 +66,22 @@ public class Person {
     }
 
     public Course getCourse() {
-        return course;
+        return courseActive;
     }
 
     public void setCourse(Course course) {
-        this.course = course;
+        this.courseActive = course;
     }
 
-    public Person() {
+    public List<Course> getCourseHistory() {
+        return courseHistory;
     }
+
+    public void setCourseHistory(List<Course> courseHistory) {
+        this.courseHistory = courseHistory;
+    }
+
+
 
 
 }

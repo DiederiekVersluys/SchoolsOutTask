@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 public class Exam {
 
@@ -16,6 +18,26 @@ public class Exam {
     private int total;
     @ManyToOne
     private Module module;
+    @OneToMany
+    private Exam examGroup;
+    @ManyToOne
+    public Exam getExamGroup() {
+        return examGroup;
+    }
+
+    public void setExamGroup(Exam examGroup) {
+        this.examGroup = examGroup;
+    }
+
+    public List<Exam> getSubExams() {
+        return subExams;
+    }
+
+    public void setSubExams(List<Exam> subExams) {
+        this.subExams = subExams;
+    }
+
+    private List<Exam> subExams;
 
     public Long getId() {
         return id;
