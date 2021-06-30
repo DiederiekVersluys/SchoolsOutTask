@@ -21,6 +21,10 @@ public class Exam {
     @OneToMany
     private Exam examGroup;
     @ManyToOne
+    private List<Exam> subExams;
+
+
+
     public Exam getExamGroup() {
         return examGroup;
     }
@@ -37,7 +41,7 @@ public class Exam {
         this.subExams = subExams;
     }
 
-    private List<Exam> subExams;
+
 
     public Long getId() {
         return id;
