@@ -17,6 +17,14 @@ public class Person {
     @ManyToOne(cascade = CascadeType.DETACH)
     private Course course;
 
+    public Person(int id, String firstName, String familyName, Gender gender, Course course) {
+        this.id = id;
+        this.firstName = firstName;
+        this.familyName = familyName;
+        this.gender = gender;
+        this.course = course;
+    }
+
     public int getId() {
         return id;
     }

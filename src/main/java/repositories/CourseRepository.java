@@ -1,43 +1,46 @@
 package repositories;
 
+import entities.Course;
 import entities.Module;
 import entities.Person;
+import repositories.EMFactory;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class ModuleRepository {
-    public Module findModuleById(Long id){
+public class CourseRepository {
+
+    public Course findCourseById(Long id){
         EntityManager em = EMFactory.getEMF().createEntityManager();
-        return em.find(Module.class, id);
+        return em.find(Course.class, id);
     }
 
-    public List<Module> getAllModules(){
+    public List<Course> getAllCourses(){
         EntityManager em = EMFactory.getEMF().createEntityManager();
-        List<Module> modules = em.createQuery("Select b From Module b").getResultList();
-        return modules;
+        List<Course> courses = em.createQuery("Select b From Course b").getResultList();
+        return courses;
     }
 
 
-    public void createModule (Module module){
+    public void createCourse (Course course){
         EntityManager em = EMFactory.getEMF().createEntityManager();
         em.getTransaction().begin();
-        em.persist(module);
+        em.persist(course);
         em.getTransaction().commit();
     }
 
-    public void updateModule(Module module){
+    public void updateCourse(Course course){
         EntityManager em = EMFactory.getEMF().createEntityManager();
         em.getTransaction().begin();
-        em.merge(module);
+        em.merge(course);
         em.getTransaction().commit();
     }
 
-    public void deleteModule(Module module){
+    public void deleteCourse(Course course){
         EntityManager em = EMFactory.getEMF().createEntityManager();
         em.getTransaction().begin();
-        Person foundModule = em.find(Person.class, module.getId());
-        em.remove(foundModule);
+        Person foundCourse = em.find(Person.class, course.getId());
+        em.remove(foundCourse);
         em.getTransaction().commit();
     }
 }
