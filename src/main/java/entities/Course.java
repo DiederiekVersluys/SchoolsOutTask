@@ -1,3 +1,5 @@
+package entities;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -5,9 +7,9 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
-    @colum(length = 2000)
+    @Column(length = 2000)
     private String description;
     private String code;
     private String imageURL;
@@ -15,15 +17,11 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private List<Module> modules;
 
-    public Course(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,11 +65,11 @@ public class Course {
         this.active = active;
     }
 
-    public List<Module> getModule() {
-        return module;
+    public List<Module> getModules() {
+        return modules;
     }
 
-    public void setModule(List<Module> module) {
-        this.module = module;
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
     }
 }

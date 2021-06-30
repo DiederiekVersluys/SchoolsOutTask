@@ -1,3 +1,5 @@
+package entities;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
@@ -5,23 +7,21 @@ public class Exam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-   private String name;
-   private String description;
-   private LocalDate date;
-   private int weight;
-   private int total;
-   @ManyToOne(mappedBy = "module")
-   private Module module;
+    private Long id;
+    private  String name;
+    @Column(length = 2000)
+    private String description;
+    private LocalDate date;
+    private int weight;
+    private int total;
+    @ManyToOne
+    private Module module;
 
-    public Exam() {
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

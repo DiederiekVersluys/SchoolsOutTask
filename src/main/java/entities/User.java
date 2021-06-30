@@ -1,16 +1,30 @@
+package entities;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 public class User {
+    @Id
     private String login;
     private String passwordHash;
     private boolean active;
-    @OneToOne(cascade = {CascadeType.REMOVE, cascadeTypde.PERSIST})
+    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private Person person;
 
-    private User() {
+    public User() {
     }
+
+    public User(String login, String passwordHash, boolean active, Person person) {
+        this.login = login;
+        this.passwordHash = passwordHash;
+        this.active = active;
+        this.person = person;
+    }
+
+
 
     public String getLogin() {
         return login;

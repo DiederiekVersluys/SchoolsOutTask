@@ -1,28 +1,27 @@
+package entities;
+
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 public class Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
-    @colum(length = 2000)
+    @Column(length = 2000)
     private String description;
     @ManyToOne
     private Course course;
     @OneToMany(mappedBy = "module", cascade = CascadeType.DETACH)
     private List<Exam> exams;
 
-    public Module(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

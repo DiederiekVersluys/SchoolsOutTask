@@ -1,3 +1,7 @@
+package entities;
+
+import entities.Course;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +14,7 @@ public class Person {
     private String familyName;
     @Transient
     private Gender gender;
-    @ManyToOne(cascade = cascadeType.DETACH)
+    @ManyToOne(cascade = CascadeType.DETACH)
     private Course course;
 
     public int getId() {
