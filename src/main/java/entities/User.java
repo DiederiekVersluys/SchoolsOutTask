@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String login;
     private String passwordHash;
     private boolean active;

@@ -14,7 +14,7 @@ public class UserRepository {
 
     public List<User> getAllUsers(){
         EntityManager em = EMFactory.getEMF().createEntityManager();
-        List<User> users = em.createQuery("Select b From User b").getResultList();
+        List users = em.createQuery("Select b From User b").getResultList();
         return users;
     }
 
