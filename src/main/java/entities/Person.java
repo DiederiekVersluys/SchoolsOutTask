@@ -17,7 +17,7 @@ public class Person {
     private Gender gender;
     @ManyToOne(cascade = CascadeType.DETACH)
     private Course courseActive;
-    @ManyToOne
+    @OneToMany
     private List<Course> courseHistory;
 
     public Person() {

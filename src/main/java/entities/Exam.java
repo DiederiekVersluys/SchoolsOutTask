@@ -18,9 +18,11 @@ public class Exam {
     private int total;
     @ManyToOne
     private Module module;
-    @OneToMany
-    private Exam examGroup;
+
     @ManyToOne
+    private Exam examGroup;
+
+    @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private List<Exam> subExams;
 
 
